@@ -1,0 +1,6 @@
+{% from 'your_form_template.jinja' import forms %}
+{% for address_entry_form in form.addresses %}
+    {{ address_entry_form.hidden_tag() }}
+    {# Flask-WTF needs `hidden_tag()` so CSRF works for each form #}
+    {{ forms.render_field(address_entry_form.name) }}
+{% endfor %}
